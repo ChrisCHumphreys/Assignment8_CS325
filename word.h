@@ -8,6 +8,7 @@
 #define WORD_H
 
 #include <iostream>
+#include <string>
 
 class Word {
   private:
@@ -16,7 +17,7 @@ class Word {
     int count;
 
   public:
-    Word(std::string word, int count)
+    Word(std::string word, int count);
     /*
      * Description:
      *   Paramaterized constructor for the Word Class.  Sets left and right pointers to null
@@ -32,7 +33,7 @@ class Word {
      *   a Word node for use in a binary search tree.
      */
     
-    void setWord(std::string word)
+    void setWord(std::string word);
     /*
      * Description:
      *   Setter function for word node.  Updates value of word attribute to whatever is specified
@@ -46,7 +47,7 @@ class Word {
      *   None
      */
 
-    void setCount(int count)
+    void setCount(int count);
     /*
      * Description:
      *   Setter function for word node.  Updates value of word attribute to whatever is specified
@@ -60,7 +61,7 @@ class Word {
      *   None
      */
 
-    std::string getWord()
+    std::string getWord();
     /*
      * Description:
      *   Getter function for word node.  Returns the value of the 'word' attribute of a Word node.
@@ -73,7 +74,7 @@ class Word {
      *     a c++ string
      */
 
-    int getCount()
+    int getCount();
     /*
      * Description:
      *   Getter function for word node.  Returns the value of the 'count' attribute of a Word node.
@@ -85,6 +86,6 @@ class Word {
      *   int count
      *     an integer
      */
-}
+};
 
 #endif //WORD_H

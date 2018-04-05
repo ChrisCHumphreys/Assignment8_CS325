@@ -7,11 +7,13 @@
  */
 
 #include <iostream>
+#include "word.h"
 
 using namespace std;
 
 int main()
 {
+  Word test("testing", 123);
   cout << "Hello World" << endl;
   return 0;
 }

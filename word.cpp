@@ -5,12 +5,13 @@
  * Description:  Declares the 'word' class and its associated functions
  */
 
+#include "word.h"
 
-Word::Word(std::string word, int data)
+Word::Word(std::string word, int count)
 {
   left = NULL;
   right = NULL;
-  this->data = data;
+  this->count = count;
   this->word = word;
 }
 

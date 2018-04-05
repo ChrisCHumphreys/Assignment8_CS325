@@ -25,14 +25,14 @@ CFLAGS=-c -Wall $(DEBUG)
 
 all: $(TARGET)
 
-$(TARGET): main.o Library.o 
-	$(CC) main.o Library.o -o $(TARGET) $(MEMFLAGS) 
+$(TARGET): main.o  
+	$(CC) main.o -o $(TARGET) $(MEMFLAGS) 
 
-main.o: main.cpp Library.h
+main.o: main.cpp word.h
 	$(CC) $(CFLAGS) $(MEMFLAGS) main.cpp 
 
-Library.o: Library.cpp Library.h Book.h
-	$(CC) $(CFLAGS) $(MEMFLAGS) Library.cpp
+word.o: word.cpp word.h
+	$(CC) $(CFLAGS) $(MEMFLAGS) word.cpp
 
 clean:
 	rm -f *.o *~ *.swp $(TARGET) 
