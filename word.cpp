@@ -7,30 +7,38 @@
 
 #include "word.h"
 
-Word::Word(std::string word, int count)
+Word::Word()
 {
   left = NULL;
   right = NULL;
+  count = -1;
+  word = "Not Specified";
+}
+
+Word::Word(std::string word, int count)
+{
+  this->left = NULL;
+  this->right = NULL;
   this->count = count;
   this->word = word;
 }
 
-Word::setWord(std::string word)
+void Word::setWord(std::string word)
 {
   this->word = word;
 }
 
-Word::setCount(int count)
+void Word::setCount(int count)
 {
   this->count = count;
 }
 
-Word::getWord()
+std::string Word::getWord()
 {
   return word;
 }
 
-Word::getCount()
+int Word::getCount()
 {
   return count;
 }

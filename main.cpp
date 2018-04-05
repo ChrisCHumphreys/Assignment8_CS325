@@ -13,7 +13,8 @@ using namespace std;
 
 int main()
 {
-  Word test("testing", 123);
+  Word test;
+  cout << test.getWord() << endl;
   cout << "Hello World" << endl;
   return 0;
 }

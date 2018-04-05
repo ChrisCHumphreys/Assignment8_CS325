@@ -17,6 +17,19 @@ class Word {
     int count;
 
   public:
+    Word();
+    /*
+     * Description:
+     *   Default Constructor for Word Class.  Sets all pointer values to null, count to -1
+     *   and word to 'Not Specified'.
+     *
+     * Inputs:
+     *   None
+     *
+     * Outputs:
+     *   a Word node
+     */
+
     Word(std::string word, int count);
     /*
      * Description:
