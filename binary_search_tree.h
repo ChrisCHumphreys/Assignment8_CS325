@@ -5,6 +5,9 @@
  * Description:  Declares the 'binary_search_tree' class, its attrbiutes and functions.  
  */
 
+#ifndef BINARY_SEARCH_TREE_H
+#define BINARY_SEARCH_TREE_H
+
 #include <iostream>
 #include "word.h"
 
@@ -121,3 +124,5 @@ class binary_search_tree
      *   None
      */
 };
+
+#endif //BINARY_SEARCH_TREE_H
