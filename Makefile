@@ -25,14 +25,17 @@ CFLAGS=-c -Wall $(DEBUG)
 
 all: $(TARGET)
 
-$(TARGET): main.o word.o 
-	$(CC) main.o word.o -o $(TARGET) $(MEMFLAGS) 
+$(TARGET): main.o word.o binary_search_tree.o
+	$(CC) main.o word.o binary_search_tree.o -o $(TARGET) $(MEMFLAGS) 
 
 main.o: main.cpp word.h
 	$(CC) $(CFLAGS) $(MEMFLAGS) main.cpp 
 
 word.o: word.cpp word.h
 	$(CC) $(CFLAGS) $(MEMFLAGS) word.cpp
+
+binary_search_tree.o: binary_search_tree.cpp binary_search_tree.h
+	$(CC) $(CFLAGS) $(MEMFLAGS) binary_search_tree.cpp
 
 clean:
 	rm -f *.o *~ *.swp $(TARGET) 

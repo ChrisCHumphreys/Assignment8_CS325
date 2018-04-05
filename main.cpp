@@ -7,15 +7,12 @@
  */
 
 #include <iostream>
-#include "word.h"
+#include "binary_search_tree.h"
 
 using namespace std;
 
 int main()
 {
-  Word test("testing", 123);
-  cout << test.getWord() << endl;
-  cout << "Hello World" << endl;
   return 0;
 }
 
