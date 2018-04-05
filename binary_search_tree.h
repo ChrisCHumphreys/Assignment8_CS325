@@ -7,14 +7,3 @@
 
 #include <iostream>
 
-class Word {
-  private:
-    Word *left, *right;
-    std::string key;
-    int data;
-
-  public:
-    Word(std::string key)
-    void set  
-
-}
