@@ -4,6 +4,8 @@
  * File: binary_search_tree.h
  * Description:  Declares the 'word' class and the 'binary_search_tree' class.  
  */
+#ifndef WORD_H
+#define WORD_H
 
 #include <iostream>
 
@@ -18,3 +20,5 @@ class Word {
     void set  
 
 }
+
+#endif //WORD_H
