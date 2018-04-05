@@ -10,7 +10,8 @@
 #include <iostream>
 #include <string>
 
-class Word {
+class Word 
+{
   private:
     Word *left, *right;
     std::string word;
