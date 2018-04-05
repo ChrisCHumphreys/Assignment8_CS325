@@ -13,3 +13,23 @@ Word::Word(std::string word, int data)
   this->data = data;
   this->word = word;
 }
+
+Word::setWord(std::string word)
+{
+  this->word = word;
+}
+
+Word::setCount(int count)
+{
+  this->count = count;
+}
+
+Word::getWord()
+{
+  return word;
+}
+
+Word::getCount()
+{
+  return count;
+}
