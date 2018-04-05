@@ -35,5 +35,5 @@ Library.o: Library.cpp Library.h Book.h
 	$(CC) $(CFLAGS) $(MEMFLAGS) Library.cpp
 
 clean:
-	rm -f *.o *~ $(TARGET) 
+	rm -f *.o *~ *.swp $(TARGET) 
 
