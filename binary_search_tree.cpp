@@ -27,7 +27,12 @@ void binary_search_tree::insertWord(std::string value)
 
 void binary_search_tree::insertHelper(Word *current, std::string value) 
 {
-  if(value < current->word) {
+  // update count if word is already in tree
+  if (current->word == value)
+  {
+    current->count++;
+  }
+  else if(value < current->word) {
     //Insert Left
     if(current->left == NULL)
       current->left = new Word(value);
@@ -58,17 +63,40 @@ void binary_search_tree::readInFromFile(std::string file)
   inFile.close();
 }
 
-void binary_search_tree::print() {
+void binary_search_tree::print() 
+{
   printHelper(root);
   std::cout << std::endl;
 }
 
 
-void binary_search_tree::printHelper(Word *current) {
+void binary_search_tree::printHelper(Word *current) 
+{
   // In-order traversal.
   if(current != NULL) {
     printHelper(current->left);
     std::cout << current->word << " ";
     printHelper(current->right);
   }
+}
+
+void binary_search_tree::find(std::string value)
+{
+  // if tree is empty return -1
+  if (root == NULL)
+  {
+    return -1;
+  }
+  Word* currentPtr = root;
+    
+  // if root is the word return
+  if (currentPtr->word == value)
+  {
+    return currentPtr->count;
+  }
+}
+
+int binary_search_tree::operator[](std::string value) 
+{
+  return 3;
 }

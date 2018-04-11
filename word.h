@@ -17,7 +17,6 @@ class Word
     std::string word;
     int count;
 
-  public:
     Word();
     /*
      * Description:
