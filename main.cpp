@@ -16,7 +16,7 @@ int main()
   binary_search_tree bst;
   bst.readInFromFile("test.dat");
   bst.print();
-  cout << bst["sofa"] << endl;
+  cout << bst["house"] << endl;
   return 0;
 }
 

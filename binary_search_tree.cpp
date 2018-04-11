@@ -113,7 +113,7 @@ int binary_search_tree::find(std::string value)
     return currentPtr->count;
   }
 
-  return -1;
+  return -2;
 }
 /*
 Psuedo code for finder helper function
