@@ -130,5 +130,5 @@ return -1;
 
 int binary_search_tree::operator[](std::string value) 
 {
-  return 3;
+  return find(value);
 }
