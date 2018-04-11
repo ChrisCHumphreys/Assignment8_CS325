@@ -88,13 +88,45 @@ void binary_search_tree::find(std::string value)
     return -1;
   }
   Word* currentPtr = root;
-    
-  // if root is the word return
+  
+  while ((currentPtr->left != NULL) && (currentPtr->right != NULL))
+  {
+    // if root is the word return
+    if (currentPtr->word == value)
+    {
+      return currentPtr->count;
+    }
+    else if ((currentPtr->word > value) && (currentPtr->left != NULL))
+    {
+      currentPtr = currentPtr->left;
+    }
+    else if (currentPtr->right != NULL)
+    {
+      currentPtr = currentPtr->right
+    }
+  }
+  
   if (currentPtr->word == value)
   {
     return currentPtr->count;
   }
+
+  return -1;
 }
+/*
+Psuedo code for finder helper function
+
+check root
+    if null or found return appropriatley
+while currentPtr left and right != NULL
+    if currentPt->word == value
+        return count;
+    else if value < word and currentPtr-Left != null
+        current pointr == currentptr-Left
+    else if value > word and currentPtr-Right != null
+        current point == currentptr-Right
+return -1;
+*/
 
 int binary_search_tree::operator[](std::string value) 
 {
