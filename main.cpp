@@ -13,6 +13,8 @@ using namespace std;
 
 int main()
 {
+  binary_search_tree bst;
+  bst.readInFromFile("test.dat");
   return 0;
 }
 

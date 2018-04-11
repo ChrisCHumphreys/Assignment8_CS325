@@ -6,20 +6,27 @@
  */
 
 #include "binary_search_tree.h"
+#include <fstream>
 
 binary_search_tree::binary_search_tree()
 {
   root = NULL;
 }
 
-void binary_search_tree::insertWord(std::string value) {
+binary_search_tree::~binary_search_tree()
+{
+    //
+}
+void binary_search_tree::insertWord(std::string value) 
+{
   if(root == NULL)
     root = new Word(value);
   else
     insertHelper(root, value);
 }
 
-void binary_search_tree::insertHelper(Word *current, std::string value) {
+void binary_search_tree::insertHelper(Word *current, std::string value) 
+{
   if(value < current->word) {
     //Insert Left
     if(current->left == NULL)
@@ -34,5 +41,34 @@ void binary_search_tree::insertHelper(Word *current, std::string value) {
     else
       insertHelper(current->right, value);
   }
+}
 
+void binary_search_tree::readInFromFile(std::string file)
+{
+  std::string tempWord = "";
+  std::ifstream inFile;
+  inFile.open(file.c_str());
+
+  while(inFile)
+  {
+    getline(inFile, tempWord);
+    insertWord(tempWord);
+  }
+
+  inFile.close();
+}
+
+void binary_search_tree::print() {
+  printHelper(root);
+  cout << endl;
+}
+
+
+void binary_search_tree::printHelper(Word *current) {
+  // In-order traversal.
+  if(current != NULL) {
+    printHelper(current->left);
+    cout << current->word << " ";
+    printHelper(current->right);
+  }
 }

@@ -76,6 +76,8 @@ class binary_search_tree
      *   int count
      *     the count attribute of the current word
      */
+    
+    void readInFromFile(std::string fileName);
 
   private:
     Word* root; //root node of the binary search tree
