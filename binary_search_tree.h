@@ -38,7 +38,7 @@ class binary_search_tree
      *   None
      */
     
-    void insertWord(Word newWord);
+    void insertWord(std::string newWord);
     /*
      * Description:
      *   Inserts a new Word object into the binary search tree.
@@ -79,7 +79,7 @@ class binary_search_tree
 
   private:
     Word* root; //root node of the binary search tree
-    void insertHelper(Word* &current, std::string word);
+    void insertHelper(Word* current, std::string word);
     /*
      * Description:
      *   helper funciton to aid insertWord function.  Allows for recursive insertion.

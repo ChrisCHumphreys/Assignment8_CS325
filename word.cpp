@@ -15,11 +15,11 @@ Word::Word()
   word = "Not Specified";
 }
 
-Word::Word(std::string word, int count)
+Word::Word(std::string word)
 {
   this->left = NULL;
   this->right = NULL;
-  this->count = count;
+  this->count = 0;
   this->word = word;
 }
 

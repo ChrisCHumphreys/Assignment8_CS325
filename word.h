@@ -12,7 +12,7 @@
 
 class Word 
 {
-  private:
+  public:
     Word *left, *right;
     std::string word;
     int count;
@@ -31,7 +31,7 @@ class Word
      *   a Word node
      */
 
-    Word(std::string word, int count);
+    Word(std::string word);
     /*
      * Description:
      *   Paramaterized constructor for the Word Class.  Sets left and right pointers to null
