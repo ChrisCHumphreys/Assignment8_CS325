@@ -78,7 +78,8 @@ class binary_search_tree
      */
     
     void readInFromFile(std::string fileName);
-
+    
+    void print();
   private:
     Word* root; //root node of the binary search tree
     void insertHelper(Word* current, std::string word);

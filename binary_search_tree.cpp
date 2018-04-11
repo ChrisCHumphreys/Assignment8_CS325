@@ -60,7 +60,7 @@ void binary_search_tree::readInFromFile(std::string file)
 
 void binary_search_tree::print() {
   printHelper(root);
-  cout << endl;
+  std::cout << std::endl;
 }
 
 
@@ -68,7 +68,7 @@ void binary_search_tree::printHelper(Word *current) {
   // In-order traversal.
   if(current != NULL) {
     printHelper(current->left);
-    cout << current->word << " ";
+    std::cout << current->word << " ";
     printHelper(current->right);
   }
 }

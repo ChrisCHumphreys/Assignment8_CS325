@@ -1,0 +1,11 @@
+car
+house
+car
+car
+chair
+chair
+sofa
+sofa
+sofa
+sofa
+ottoman
