@@ -11,7 +11,7 @@ Word::Word()
 {
   left = NULL;
   right = NULL;
-  count = -1;
+  count = 0;
   word = "Not Specified";
 }
 
@@ -19,7 +19,7 @@ Word::Word(std::string word)
 {
   this->left = NULL;
   this->right = NULL;
-  this->count = 0;
+  this->count = 1;
   this->word = word;
 }
 

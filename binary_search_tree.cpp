@@ -80,7 +80,7 @@ void binary_search_tree::printHelper(Word *current)
   }
 }
 
-void binary_search_tree::find(std::string value)
+int binary_search_tree::find(std::string value)
 {
   // if tree is empty return -1
   if (root == NULL)
@@ -102,7 +102,7 @@ void binary_search_tree::find(std::string value)
     }
     else if (currentPtr->right != NULL)
     {
-      currentPtr = currentPtr->right
+      currentPtr = currentPtr->right;
     }
   }
   
