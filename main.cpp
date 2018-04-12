@@ -17,11 +17,13 @@ int main()
     bst.readInFromFile("test.dat");
     bst.print();
     cout << bst["sofa"] << endl;
-    bst.set("television", 10000);
     bst.set("house", 3);
     bst.set("sofa", 3);
-    bst.set("apple", 10);
     bst.print();
+    cout << bst["apple"] << endl;
+    cout << bst.min() << endl;
+    cout << bst.max() << endl;
+    bst.saveFile("testFile.txt");
     return 0;
 }
 

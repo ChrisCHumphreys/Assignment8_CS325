@@ -66,6 +66,25 @@ void binary_search_tree::readInFromFile(std::string file)
     inFile.close();
 }
 
+void binary_search_tree::saveFile(std::string file)
+{
+    std::ofstream outFile;
+    outFile.open(file.c_str());
+    
+    saveHelper(root, outFile);
+    
+    outFile.close();
+}
+
+void binary_search_tree::saveHelper(Word *current, std::ofstream& outFile)
+{
+    if (current != NULL) {
+        saveHelper(current->left, outFile);
+        outFile << current->word << std::endl;
+        saveHelper(current->right, outFile);
+    }
+}
+
 void binary_search_tree::print() 
 {
     printHelper(root);
@@ -114,7 +133,7 @@ int binary_search_tree::find(std::string value)
         return currentPtr->count;
     }
     
-    return -2;
+    return -1;
 }
 /*
  Psuedo code for finder helper function
@@ -169,6 +188,54 @@ void binary_search_tree::setHelper(Word *current, std::string value, int count)
         else
             setHelper(current->right, value, count);
     }
+}
+
+std::string binary_search_tree::min()
+{
+    // If tree is empty let user know
+    if (root == NULL)
+    {
+        return "Empty Tree";
+    }
+    
+    // if there is only one entry return that
+    Word *currentPtr = root;
+    if ((currentPtr->left == NULL) && (currentPtr->right == NULL))
+    {
+        return currentPtr->word;
+    }
+    
+    // otherwise, keep going left till you hit the smallest
+    while (currentPtr->left != NULL)
+    {
+        currentPtr = currentPtr->left;
+    }
+    
+    return currentPtr->word;
+}
+
+std::string binary_search_tree::max()
+{
+    // If tree is empty let user know
+    if (root == NULL)
+    {
+        return "Empty Tree";
+    }
+    
+    // if there is only one entry return that
+    Word *currentPtr = root;
+    if ((currentPtr->left == NULL) && (currentPtr->right == NULL))
+    {
+        return currentPtr->word;
+    }
+    
+    // keep going to the right till we get to the end
+    while (currentPtr->right != NULL)
+    {
+        currentPtr = currentPtr->right;
+    }
+    
+    return currentPtr->word;
 }
 
 int binary_search_tree::operator[](std::string value) 

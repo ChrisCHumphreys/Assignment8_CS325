@@ -78,11 +78,14 @@ class binary_search_tree
      */
     
     void readInFromFile(std::string fileName);
+    void saveFile(std::string fileName);
     
     void print();
     int find(std::string value);
     void set(std::string word, int count);
     int operator[](std::string value);
+    std::string min();
+    std::string max();
 
   private:
     Word* root; //root node of the binary search tree
@@ -132,6 +135,7 @@ class binary_search_tree
      */
     
     void setHelper(Word *current, std::string value, int count);
+    void saveHelper(Word *current, std::ofstream& outFile);
 };
 
 #endif //BINARY_SEARCH_TREE_H
