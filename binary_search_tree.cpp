@@ -131,6 +131,46 @@ int binary_search_tree::find(std::string value)
  return -1;
  */
 
+void binary_search_tree::set(std::string word, int count)
+{
+    if(root == NULL)
+    {
+        root = new Word(word);
+        root->setCount(count);
+    }
+    else
+        setHelper(root, word, count);
+}
+
+void binary_search_tree::setHelper(Word *current, std::string value, int count)
+{
+    // update count if word is already in tree
+    if (current->word == value)
+    {
+        current->count = count;
+    }
+    else if(value < current->word) {
+        //Insert Left
+        if(current->left == NULL)
+        {
+            current->left = new Word(value);
+            current->left->setCount(count);
+        }
+        else
+            setHelper(current->left, value, count);
+    }
+    else {
+        //Insert Right
+        if(current->right == NULL)
+        {
+            current->right = new Word(value);
+            current->right->setCount(count);
+        }
+        else
+            setHelper(current->right, value, count);
+    }
+}
+
 int binary_search_tree::operator[](std::string value) 
 {
     return find(value);

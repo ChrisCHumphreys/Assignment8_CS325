@@ -81,6 +81,7 @@ class binary_search_tree
     
     void print();
     int find(std::string value);
+    void set(std::string word, int count);
     int operator[](std::string value);
 
   private:
@@ -129,6 +130,8 @@ class binary_search_tree
      * Outputs
      *   None
      */
+    
+    void setHelper(Word *current, std::string value, int count);
 };
 
 #endif //BINARY_SEARCH_TREE_H
