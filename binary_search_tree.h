@@ -14,6 +14,8 @@
 class binary_search_tree
 {
   public:
+
+    
     binary_search_tree();
     /*
      * Description:
@@ -83,11 +85,12 @@ class binary_search_tree
     void print();
     int find(std::string value);
     void set(std::string word, int count);
-    int operator[](std::string value);
+    int& operator[](std::string value);
     std::string min();
     std::string max();
 
   private:
+    int notFound;
     Word* root; //root node of the binary search tree
     void insertHelper(Word* current, std::string word);
     /*
