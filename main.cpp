@@ -2,7 +2,7 @@
  * Name: Chris Humphreys
  * Date: 04/04/18
  * File: main.cpp
- * Description:  Main driver for Assignment 8 binary search tree assignment.  Creates a user menu, 
+ * Description:  Main driver for Assignment 8 binary search tree assignment.  Creates a user menu,
  *   and runs program in an easy to use interface.
  */
 
@@ -13,10 +13,10 @@ using namespace std;
 
 int main()
 {
-  binary_search_tree bst;
-  bst.readInFromFile("test.dat");
-  bst.print();
-  cout << bst["house"] << endl;
-  return 0;
+    binary_search_tree bst;
+    bst.readInFromFile("test.dat");
+    bst.print();
+    cout << bst["sofa"] << endl;
+    return 0;
 }
 
