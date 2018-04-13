@@ -1,4 +1,4 @@
-/* 
+/*
  * Name: Chris Humphreys
  * Date: 04/04/18
  * File: main.cpp
@@ -20,9 +20,9 @@ int main()
     bst.saveFile("testFile.txt");
     bst.print();
     cout << "----------------" << endl;
-    //bst.deleteWord("apple");
+    bst.deleteWord("sofa");
     //bst.deleteWord("car");
-    bst.deleteWord("house");
+    //bst.deleteWord("house");
     bst.print();
 
     return 0;

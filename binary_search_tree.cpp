@@ -313,7 +313,7 @@ void binary_search_tree::deleteWord(std::string deleteWord)
     
     Word* currentPtr = root;
     Word* parentPtr = NULL;
-    std::string cameFrom = "";
+    std::string cameFrom;
     deleteHelper(currentPtr, parentPtr, cameFrom, deleteWord);
 }
 
@@ -328,10 +328,11 @@ void binary_search_tree::deleteHelper(Word* &current, Word* &parentPtr, std::str
             current = current->left;
             deleteHelper(current, parentPtr, cameFrom, deleteWord);
         }
+        /*
         else
         {
             return;
-        }
+        }*/
     }
     
     else if (deleteWord > current->word)
@@ -343,10 +344,11 @@ void binary_search_tree::deleteHelper(Word* &current, Word* &parentPtr, std::str
             current = current->right;
             deleteHelper(current, parentPtr, cameFrom, deleteWord);
         }
+        /*
         else
         {
             return;
-        }
+        }*/
     }
     
     else if (deleteWord == current->word)
@@ -363,12 +365,13 @@ void binary_search_tree::deleteHelper(Word* &current, Word* &parentPtr, std::str
                 parentPtr->right = NULL;
                 delete current;
             }
+            /*
             else
             {
                 delete current;
-            }
+            }*/
         }
-        else if (current->left == NULL)
+        else if ((current->left == NULL) && (cameFrom != ""))
         {
             if (cameFrom == "right")
             {
@@ -380,12 +383,13 @@ void binary_search_tree::deleteHelper(Word* &current, Word* &parentPtr, std::str
                 parentPtr->left = current->right;
                 delete current;
             }
+            /*
             else
             {
                 delete current;
-            }
+            }*/
         }
-        else if (current->right == NULL)
+        else if (current->right == NULL && (cameFrom != ""))
         {
             if (cameFrom == "right")
             {
@@ -394,7 +398,7 @@ void binary_search_tree::deleteHelper(Word* &current, Word* &parentPtr, std::str
             }
             else if (cameFrom == "left")
             {
-                parentPtr->left = current->right;
+                parentPtr->left = current->left;
                 delete current;
             }
             else
@@ -411,14 +415,14 @@ void binary_search_tree::deleteHelper(Word* &current, Word* &parentPtr, std::str
             6.3 Delete the leaf with the greatest key in left subtree
             (Alternate: Use least key in right subtree.)
              */
-            Word* biggestFromLeft = biggestFromSubtree(current);
+            Word* biggestFromLeft = biggestFromSubtree(current->left);
             deleteWord = biggestFromLeft->word;
             current->word = biggestFromLeft->word;
             current->count = biggestFromLeft->count;
             parentPtr = current;
-            current = current->right;
-            cameFrom = "right";
-            deleteHelper(current, parentPtr, cameFrom, deleteWord);
+            //current = current->left;
+            cameFrom = "left";
+            deleteHelper(current->left, parentPtr, cameFrom, deleteWord);
         }
     }
 }
