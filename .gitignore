@@ -33,3 +33,5 @@
 
 # Temp vim files
 *.swp
+
+*.xcodeproj

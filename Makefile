@@ -38,5 +38,5 @@ binary_search_tree.o: binary_search_tree.cpp binary_search_tree.h
 	$(CC) $(CFLAGS) $(MEMFLAGS) binary_search_tree.cpp
 
 clean:
-	rm -f *.o *~ *.swp $(TARGET) 
+	rm -f testFile.txt *.o *~ *.swp $(TARGET) 
 
