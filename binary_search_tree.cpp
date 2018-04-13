@@ -365,13 +365,13 @@ void binary_search_tree::deleteHelper(Word* &current, Word* &parentPtr, std::str
                 parentPtr->right = NULL;
                 delete current;
             }
-            /*
             else
             {
+                root = NULL;
                 delete current;
-            }*/
+            }
         }
-        else if ((current->left == NULL) && (cameFrom != ""))
+        else if (current->left == NULL)
         {
             if (cameFrom == "right")
             {
@@ -383,13 +383,13 @@ void binary_search_tree::deleteHelper(Word* &current, Word* &parentPtr, std::str
                 parentPtr->left = current->right;
                 delete current;
             }
-            /*
             else
             {
+                root = current->right;
                 delete current;
-            }*/
+            }
         }
-        else if (current->right == NULL && (cameFrom != ""))
+        else if (current->right == NULL)
         {
             if (cameFrom == "right")
             {
@@ -403,6 +403,7 @@ void binary_search_tree::deleteHelper(Word* &current, Word* &parentPtr, std::str
             }
             else
             {
+                root = current->left;
                 delete current;
             }
         }
@@ -429,6 +430,7 @@ void binary_search_tree::deleteHelper(Word* &current, Word* &parentPtr, std::str
 
 Word* binary_search_tree::biggestFromSubtree(Word* iterator)
 {
+    
     if (iterator->right == NULL)
     {
         return iterator;

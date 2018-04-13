@@ -20,9 +20,12 @@ int main()
     bst.saveFile("testFile.txt");
     bst.print();
     cout << "----------------" << endl;
+    bst.deleteWord("apple");
+    bst.deleteWord("car");
+    bst.deleteWord("house");
+    bst.deleteWord("chair");
     bst.deleteWord("sofa");
-    //bst.deleteWord("car");
-    //bst.deleteWord("house");
+    bst.deleteWord("ottoman");
     bst.print();
 
     return 0;
