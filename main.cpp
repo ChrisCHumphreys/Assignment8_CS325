@@ -16,17 +16,14 @@ int main()
     
     binary_search_tree bst;
     bst.readInFromFile("test.dat");
-    bst.print();
-    cout << bst["sofa"] << endl;
-    bst.set("house", 3);
-    bst.set("sofa", 3);
-    bst.print();
-    cout << bst["apple"] << endl;
-    bst["apple"]++;
-    // cout << bst.min() << endl;
-    // cout << bst.max() << endl;
     cout << bst["apple"] << endl;
     bst.saveFile("testFile.txt");
+    bst.print();
+    cout << "----------------" << endl;
+    //bst.deleteWord("apple");
+    //bst.deleteWord("car");
+    bst.deleteWord("house");
+    bst.print();
 
     return 0;
 }

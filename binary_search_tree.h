@@ -53,10 +53,10 @@ class binary_search_tree
      *   None
      */
 
-    void deleteWord(Word deleteWord);
+    void deleteWord(std::string deleteWord);
     /*
      * Description:
-     *   class destructor, deletes nodes from tree and adjuststs tree to account
+     *   deletes the first occurence of a node from tree and adjuststs tree to account
      *   for node being deleted.
      *
      * Inputs:
@@ -67,7 +67,7 @@ class binary_search_tree
      *   None
      */
 
-    void deleteHelper(Word* &current, std::string word);
+    void deleteHelper(Word* &current, Word* &currentPtr, std::string cameFrom, std::string word);
     /* 
      * Description:
      *   helper function to be used with deleteWord.  Allows for recursive deletion of nodes.
@@ -139,6 +139,7 @@ class binary_search_tree
     
     void setHelper(Word *current, std::string value, int count);
     void saveHelper(Word *current, std::ofstream& outFile);
+    Word* biggestFromSubtree(Word* iterator);
 };
 
 #endif //BINARY_SEARCH_TREE_H
