@@ -11,7 +11,6 @@
 binary_search_tree::binary_search_tree()
 {
     root = NULL;
-    notFound = -1;
 }
 
 binary_search_tree::~binary_search_tree()
@@ -245,7 +244,8 @@ int& binary_search_tree::operator[](std::string value)
     // if tree is empty return -1
     if (root == NULL)
     {
-        return notFound;
+        set(value, 0);
+        return root->count;
     }
     Word* currentPtr = root;
     
@@ -272,6 +272,33 @@ int& binary_search_tree::operator[](std::string value)
         return currentPtr->count;
     }
     
-    return notFound;
+    // if not found, set the value
+    set(value, 0);
+    
+    // reset to root and then search again.
+    currentPtr = root;
+    
+    // while not at a bottom leaf.
+    while ((currentPtr->left != NULL) || (currentPtr->right != NULL))
+    {
+        // if root is the word return
+        if (currentPtr->word == value)
+        {
+            return currentPtr->count;
+        }
+        else if ((currentPtr->word > value) && (currentPtr->left != NULL))
+        {
+            currentPtr = currentPtr->left;
+        }
+        else if (currentPtr->right != NULL)
+        {
+            currentPtr = currentPtr->right;
+        }
+    }
+    
+    if (currentPtr->word == value)
+    {
+        return currentPtr->count;
+    }
     
 }

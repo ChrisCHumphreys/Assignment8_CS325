@@ -13,6 +13,7 @@ using namespace std;
 
 int main()
 {
+    
     binary_search_tree bst;
     bst.readInFromFile("test.dat");
     bst.print();
@@ -21,9 +22,12 @@ int main()
     bst.set("sofa", 3);
     bst.print();
     cout << bst["apple"] << endl;
-    cout << bst.min() << endl;
-    cout << bst.max() << endl;
+    bst["apple"]++;
+    // cout << bst.min() << endl;
+    // cout << bst.max() << endl;
+    cout << bst["apple"] << endl;
     bst.saveFile("testFile.txt");
+
     return 0;
 }
 
