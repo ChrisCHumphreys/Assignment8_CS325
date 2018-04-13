@@ -1,0 +1,6 @@
+apple
+car
+chair
+house
+ottoman
+sofa

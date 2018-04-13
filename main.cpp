@@ -17,6 +17,8 @@ int main()
     binary_search_tree bst;
     bst.readInFromFile("test.dat");
     cout << bst["apple"] << endl;
+    bst["apple"]++;
+    cout << bst["apple"] << endl;
     bst.saveFile("testFile.txt");
     bst.print();
     cout << "----------------" << endl;
@@ -25,7 +27,7 @@ int main()
     bst.deleteWord("house");
     bst.deleteWord("chair");
     bst.deleteWord("sofa");
-    bst.deleteWord("ottoman");
+    //bst.deleteWord("ottoman");
     bst.print();
 
     return 0;
