@@ -467,9 +467,9 @@ void binary_search_tree::deleteHelper(Word* &current, Word* &parentPtr, std::str
             current->word = biggestFromLeft->word;
             current->count = biggestFromLeft->count;
             parentPtr = current;
-            //current = current->left;
+            current = current->left;
             cameFrom = "left";
-            deleteHelper(current->left, parentPtr, cameFrom, deleteWord);
+            deleteHelper(current, parentPtr, cameFrom, deleteWord);
         }
     }
 }
