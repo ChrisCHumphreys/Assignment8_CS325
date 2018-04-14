@@ -25,11 +25,11 @@ CFLAGS=-c -Wall $(DEBUG)
 
 all: $(TARGET)
 
-$(TARGET): main.o word.o binary_search_tree.o
-	$(CC) main.o word.o binary_search_tree.o -o $(TARGET) $(MEMFLAGS) 
+$(TARGET): driver.o word.o binary_search_tree.o
+	$(CC) driver.o word.o binary_search_tree.o -o $(TARGET) $(MEMFLAGS) 
 
-main.o: main.cpp word.h
-	$(CC) $(CFLAGS) $(MEMFLAGS) main.cpp 
+driver.o: driver.cpp word.h
+	$(CC) $(CFLAGS) $(MEMFLAGS) driver.cpp 
 
 word.o: word.cpp word.h
 	$(CC) $(CFLAGS) $(MEMFLAGS) word.cpp
