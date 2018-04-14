@@ -63,7 +63,7 @@ void binary_search_tree::readInFromFile(std::string file)
     while(inFile >> rawWord)
     {
         // make lowercase
-        for (int i = 0; i < rawWord.length(); i++)
+        for (int i = 0; i < int(rawWord.length()); i++)
         {
             rawWord[i] = tolower(rawWord[i]);
         }
