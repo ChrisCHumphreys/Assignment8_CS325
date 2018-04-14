@@ -24,6 +24,7 @@ binary_search_tree::~binary_search_tree()
 }
 void binary_search_tree::insertWord(std::string value) 
 {
+    // empty tree
     if(root == NULL)
         root = new Word(value);
     else
@@ -67,57 +68,73 @@ void binary_search_tree::readInFromFile(std::string file)
             rawWord[i] = tolower(rawWord[i]);
         }
         
+        // remove all punctuation
         std::string cleanWord = removePunctuation(rawWord);
-        //std::cout << "Clean: " << cleanWord << std::endl;
         
+        // if word is blank, dont add to list.
         if (cleanWord != "")
         {
             insertWord(cleanWord);
         }
     }
     
+    // close up nicely
     inFile.close();
 }
 
 std::string binary_search_tree::removePunctuation(std::string rawWord)
 {
-    // starts with non letter
-    //std::cout <<"Before: " << rawWord << std::endl;
+    // if string is empty
     if (rawWord.length() == 0)
     {
         return "";
     }
+    
+    // if front and back are both letters - return
     if ((std::isalpha(rawWord[0])) && (std::isalpha(rawWord[rawWord.length() - 1])))
     {
         return rawWord;
     }
+    
     else 
     {
+        // if front is not a letter
         if (!isalpha(rawWord[0]))
         {
+            // remove front
             rawWord = rawWord.substr(1, rawWord.length() - 1);
         }
+        
+        // if back is not a letter
         if (!isalpha(rawWord[rawWord.length() - 1]))
         {
+            // remove back
             rawWord = rawWord.substr(0, rawWord.length() - 1);
         }
+        
+        // clean again
         rawWord = removePunctuation(rawWord);
+        
+        // return cleaned word
         return rawWord;
     }
 }
 
 void binary_search_tree::saveFile(std::string file)
 {
+    // open the stream
     std::ofstream outFile;
     outFile.open(file.c_str());
     
     saveHelper(root, outFile);
     
+    // close the stream
     outFile.close();
 }
 
 void binary_search_tree::saveHelper(Word *current, std::ofstream& outFile)
 {
+    // recursively write to file in alphabetical order
     if (current != NULL) {
         saveHelper(current->left, outFile);
         outFile << current->word << " : " << current->count << std::endl;
@@ -127,6 +144,7 @@ void binary_search_tree::saveHelper(Word *current, std::ofstream& outFile)
 
 void binary_search_tree::print() 
 {
+    // have to use helper to specify root
     printHelper(root);
 }
 
@@ -168,35 +186,26 @@ int binary_search_tree::find(std::string value)
         }
     }
     
+    // word is found
     if (currentPtr->word == value)
     {
         return currentPtr->count;
     }
     
+    // if word is not found return -1
     return -1;
 }
-/*
- Psuedo code for finder helper function
- 
- check root
- if null or found return appropriatley
- while currentPtr left and right != NULL
- if currentPt->word == value
- return count;
- else if value < word and currentPtr-Left != null
- current pointr == currentptr-Left
- else if value > word and currentPtr-Right != null
- current point == currentptr-Right
- return -1;
- */
 
 void binary_search_tree::set(std::string word, int count)
 {
+    // if tree is empty, just add to tree
     if(root == NULL)
     {
         root = new Word(word);
         root->setCount(count);
     }
+    
+    // else, search and add
     else
         setHelper(root, word, count);
 }
@@ -281,12 +290,14 @@ std::string binary_search_tree::max()
 int& binary_search_tree::operator[](std::string value) 
 {
     
-    // if tree is empty return -1
+    // if tree is empty add to tree, set to 0
     if (root == NULL)
     {
         set(value, 0);
         return root->count;
     }
+    
+    // start at bottom of tree
     Word* currentPtr = root;
     
     // while not at a bottom leaf.
@@ -336,6 +347,7 @@ int& binary_search_tree::operator[](std::string value)
         }
     }
     
+    // if found, update value
     if (currentPtr->word == value)
     {
         return currentPtr->count;
@@ -450,13 +462,6 @@ void binary_search_tree::deleteHelper(Word* &current, Word* &parentPtr, std::str
         }
         else
         {
-            /*
-            6. Left and Right subtrees:
-            6.1 Find node with the greatest key in left subtree
-            6.2 Copy greatest key to the delete node's data
-            6.3 Delete the leaf with the greatest key in left subtree
-            (Alternate: Use least key in right subtree.)
-             */
             Word* biggestFromLeft = biggestFromSubtree(current->left);
             deleteWord = biggestFromLeft->word;
             current->word = biggestFromLeft->word;
@@ -471,11 +476,13 @@ void binary_search_tree::deleteHelper(Word* &current, Word* &parentPtr, std::str
 
 Word* binary_search_tree::biggestFromSubtree(Word* iterator)
 {
-    
+    // if at largest value, return
     if (iterator->right == NULL)
     {
         return iterator;
     }
+    
+    // keep going right
     else
     {
         iterator = iterator->right;
