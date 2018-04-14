@@ -41,11 +41,11 @@ Second,  I was able to improve the subscript operator versus what was assigned. 
 of overriding the subscript operator for accessing and mutating.   By having the operator return a reference to the value, rather than a copy, I
 was able to allow accessing and mutating in only one function.
 
-Finally,  my delete funciton is messy and still not quite working right.
+Finally,  my delete funciton is pretty messy.  It works properly, and does it in the manner given in the psuedocode in the assignment, but I know
+there has to be a cleaner way to do it.  Unfortunatley, due to time constraints, I was not able to get it as elegant as I would have liked.
 
 ##  Bugs - Future Improvements
-I would like to implement more error checking, especeially for users entering invalid inputs.  Additionally, the delete funtion is still not working
-when deleting a node that is not a leaf.
+I would like to implement more error checking, especeially for users entering invalid inputs.
 
 If a user reads in a file, and there is already a binary tree made, it will add the new terms to current tree.  This is not necessarily a bug, as it may be what the user wanted, but in the future, adding an empty tree option might be nice to allow the user to "reset" their tree.
 
