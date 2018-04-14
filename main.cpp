@@ -34,13 +34,12 @@ void menu()
         cout << "1: Read in From A File" << endl;
         cout << "2: Print Current Word List" << endl;
         cout << "3: Search For A Word" << endl;
-        cout << "4: Add a Word" << endl;
+        cout << "4: Update/Add a Word" << endl;
         cout << "5: Increment One Words Value by One" << endl;
-        cout << "6: Set a Word to a new amount" << endl;
-        cout << "7: Delete a Word" << endl;
-        cout << "8: Save Current Word List to Disk" << endl;
-        cout << "9: Quit" << endl << endl;
-        cout << "Your Choice(1 - 9): ";
+        cout << "6: Delete a Word" << endl;
+        cout << "7: Save Current Word List to Disk" << endl;
+        cout << "8: Quit" << endl << endl;
+        cout << "Your Choice(1 - 8): ";
         cin >> menuOption;
         
         if (menuOption == "1")
@@ -55,11 +54,53 @@ void menu()
             }
             else
             {
+                cout << endl;
                 bst.print();
                 cout << endl;
             }
         }
-        else if (menuOption == "9")
+        else if (menuOption == "3")
+        {
+            string searchTerm = "";
+            
+            cout << "Enter Search Word: ";
+            cin >> searchTerm;
+            cout << searchTerm << " occurs " << bst[searchTerm] << " times in the document(s)." << endl << endl;
+        }
+        else if (menuOption == "4")
+        {
+            string newWord = "";
+            int newCount = 0;
+            
+            cout << "If Word already exists its number of occurences will be overwritten." << endl;
+            cout << "If Word does not exist it will be added." << endl;
+            cout << "Please Enter Word to update/add to list: ";
+            cin >> newWord;
+            cout << "Please enter number of occurences of word: ";
+            cin >> newCount;
+            bst.set(newWord, newCount);
+            cout << "Term->" << newWord << " now occurs in list with value of " << newCount << "." << endl << endl;
+        }
+        else if (menuOption == "5")
+        {
+            string incWord = "";
+            
+            cout << "WARNING - If word entered does not exit in list, it will be added with a value of 1" << endl;
+            cout << "Please enter word to increment: ";
+            cin >> incWord;
+            bst[incWord]++;
+            
+            cout << incWord << " now has a value of " << bst[incWord] << endl << endl;
+        }
+        else if (menuOption == "6")
+        {
+            string toBeDeleted = "";
+            
+            cout << "Enter word to delete: ";
+            cin >> toBeDeleted;
+            bst.deleteWord(toBeDeleted);
+        }
+        else if (menuOption == "8")
         {
             return;
         }
