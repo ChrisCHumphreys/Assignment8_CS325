@@ -12,10 +12,35 @@
 using namespace std;
 
 void menu();
+/*
+ * Description:
+ *   Main driver of Program.  Creates a binary_search_tree object and then allows
+ *   user to manipulate tree through a simple and clean user interface.
+ *
+ * Inputs:
+ *   None
+ *
+ * Outputs:
+ *   None
+ */
+
 void readFromFile(binary_search_tree &bst);
+/*
+ * Description:
+ *   Reads in from a file and adds terms to current binary_search_tree.  If tree is
+ *   already populated, terms from file wll be added to current list.
+ *
+ * Inputs:
+ *   binary_search_tree& bst
+ *     a binary_search_tree object
+ *
+ * Outputs:
+ *   None
+ */
 
 int main()
 {
+    // call main menu
     menu();
     return 0;
 }
@@ -28,6 +53,7 @@ void menu()
     // make an empty tree
     binary_search_tree bst;
     
+    // loop until user decides to quit
     while (menuOption != "10")
     {
         cout << "Welcome to Chris's Word Count!" << endl << endl;
@@ -44,10 +70,13 @@ void menu()
         cout << "Your Choice(1 - 10): ";
         cin >> menuOption;
         
+        // read from file
         if (menuOption == "1")
         {
             readFromFile(bst);
         }
+        
+        // print list
         else if (menuOption == "2")
         {
             if (bst.isEmpty())
@@ -61,6 +90,8 @@ void menu()
                 cout << endl;
             }
         }
+        
+        // search for a term
         else if (menuOption == "3")
         {
             string searchTerm = "";
@@ -69,6 +100,8 @@ void menu()
             cin >> searchTerm;
             cout << searchTerm << " occurs " << bst[searchTerm] << " times in the document(s)." << endl << endl;
         }
+        
+        // update/add a word
         else if (menuOption == "4")
         {
             string newWord = "";
@@ -83,6 +116,8 @@ void menu()
             bst.set(newWord, newCount);
             cout << "Term->" << newWord << " now occurs in list with value of " << newCount << "." << endl << endl;
         }
+        
+        // increment a word
         else if (menuOption == "5")
         {
             string incWord = "";
@@ -94,6 +129,8 @@ void menu()
             
             cout << incWord << " now has a value of " << bst[incWord] << endl << endl;
         }
+        
+        // delete a word
         else if (menuOption == "6")
         {
             string toBeDeleted = "";
@@ -103,14 +140,20 @@ void menu()
             bst.deleteWord(toBeDeleted);
             cout << toBeDeleted << " removed from list." << endl << endl;
         }
+        
+        // show min word
         else if (menuOption == "7")
         {
             cout << "The smallest word is " << bst.min() << endl << endl;
         }
+        
+        // show max word
         else if (menuOption == "8")
         {
             cout << "The largest word is " << bst.max() << endl << endl;
         }
+        
+        // save to disk
         else if (menuOption == "9")
         {
             string fileName = "";
@@ -120,10 +163,14 @@ void menu()
             bst.saveFile(fileName);
             cout << "File Saved" << endl << endl;
         }
+        
+        // exit
         else if (menuOption == "10")
         {
             return;
         }
+        
+        // reset counter for invalid entry
         else
         {
             menuOption = "0";
