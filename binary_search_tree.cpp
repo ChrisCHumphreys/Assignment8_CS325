@@ -7,6 +7,7 @@
 
 #include "binary_search_tree.h"
 #include <fstream>
+#include <locale> //to lower, c-string functions
 
 binary_search_tree::binary_search_tree()
 {
@@ -50,20 +51,55 @@ void binary_search_tree::insertHelper(Word *current, std::string value)
 
 void binary_search_tree::readInFromFile(std::string file)
 {
-    std::string tempWord = "";
+    std::string rawWord = "";
     std::ifstream inFile;
     inFile.open(file.c_str());
     
-    while(inFile)
+    while(inFile >> rawWord)
     {
-        getline(inFile, tempWord);
-        if (tempWord != "")
+        // make lowercase
+        for (int i = 0; i < rawWord.length(); i++)
         {
-            insertWord(tempWord);
+            rawWord[i] = tolower(rawWord[i]);
+        }
+        
+        std::string cleanWord = removePunctuation(rawWord);
+        //std::cout << "Clean: " << cleanWord << std::endl;
+        
+        if (cleanWord != "")
+        {
+            insertWord(cleanWord);
         }
     }
     
     inFile.close();
+}
+
+std::string binary_search_tree::removePunctuation(std::string rawWord)
+{
+    // starts with non letter
+    //std::cout <<"Before: " << rawWord << std::endl;
+    if (rawWord.length() == 0)
+    {
+        return "";
+    }
+    if ((std::isalpha(rawWord[0])) && (std::isalpha(rawWord[rawWord.length() - 1])))
+    {
+        return rawWord;
+    }
+    else 
+    {
+        if (!isalpha(rawWord[0]))
+        {
+            rawWord = rawWord.substr(1, rawWord.length() - 1);
+        }
+        if (!isalpha(rawWord[rawWord.length() - 1]))
+        {
+            rawWord = rawWord.substr(0, rawWord.length() - 2);
+        }
+        rawWord = removePunctuation(rawWord);
+        return rawWord;
+    }
 }
 
 void binary_search_tree::saveFile(std::string file)
@@ -80,7 +116,7 @@ void binary_search_tree::saveHelper(Word *current, std::ofstream& outFile)
 {
     if (current != NULL) {
         saveHelper(current->left, outFile);
-        outFile << current->word << std::endl;
+        outFile << current->word << " : " << current->count << std::endl;
         saveHelper(current->right, outFile);
     }
 }
@@ -300,6 +336,7 @@ int& binary_search_tree::operator[](std::string value)
     {
         return currentPtr->count;
     }
+    
     // should never reach here, just to make sure no warnings
     return currentPtr->count;
 }

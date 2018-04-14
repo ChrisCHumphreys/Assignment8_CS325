@@ -140,6 +140,7 @@ class binary_search_tree
     void setHelper(Word *current, std::string value, int count);
     void saveHelper(Word *current, std::ofstream& outFile);
     Word* biggestFromSubtree(Word* iterator);
+    std::string removePunctuation(std::string rawWord);
 };
 
 #endif //BINARY_SEARCH_TREE_H

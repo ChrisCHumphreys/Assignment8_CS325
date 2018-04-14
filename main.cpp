@@ -15,20 +15,20 @@ int main()
 {
     
     binary_search_tree bst;
-    bst.readInFromFile("test.dat");
-    cout << bst["apple"] << endl;
-    bst["apple"]++;
-    cout << bst["apple"] << endl;
+    bst.readInFromFile("sherlock.txt");
+    //cout << bst["apple"] << endl;
+    //bst["apple"]++;
+    //cout << bst["apple"] << endl;
     bst.saveFile("testFile.txt");
     bst.print();
-    cout << "----------------" << endl;
-    bst.deleteWord("apple");
-    bst.deleteWord("car");
-    bst.deleteWord("house");
-    bst.deleteWord("chair");
-    bst.deleteWord("sofa");
+    //cout << "----------------" << endl;
+    //bst.deleteWord("apple");
+    //bst.deleteWord("car");
+    //bst.deleteWord("house");
+    //bst.deleteWord("chair");
+    //bst.deleteWord("sofa");
     //bst.deleteWord("ottoman");
-    bst.print();
+    //bst.print();
 
     return 0;
 }
