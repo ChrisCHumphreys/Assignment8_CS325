@@ -47,5 +47,7 @@ Finally,  my delete funciton is messy and still not quite working right.
 I would like to implement more error checking, especeially for users entering invalid inputs.  Additionally, the delete funtion is still not working
 when deleting a node that is not a leaf.
 
+If a user reads in a file, and there is already a binary tree made, it will add the new terms to current tree.  This is not necessarily a bug, as it may be what the user wanted, but in the future, adding an empty tree option might be nice to allow the user to "reset" their tree.
+
 ## Extra Credit
 Overrode the subscript operator.  Working well.
