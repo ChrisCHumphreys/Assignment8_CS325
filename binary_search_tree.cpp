@@ -95,7 +95,7 @@ std::string binary_search_tree::removePunctuation(std::string rawWord)
         }
         if (!isalpha(rawWord[rawWord.length() - 1]))
         {
-            rawWord = rawWord.substr(0, rawWord.length() - 2);
+            rawWord = rawWord.substr(0, rawWord.length() - 1);
         }
         rawWord = removePunctuation(rawWord);
         return rawWord;
