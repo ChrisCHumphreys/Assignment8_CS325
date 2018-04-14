@@ -482,3 +482,15 @@ Word* binary_search_tree::biggestFromSubtree(Word* iterator)
         return biggestFromSubtree(iterator);
     }
 }
+
+bool isEmpty()
+{
+    if (root == NULL)
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+}

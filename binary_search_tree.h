@@ -88,9 +88,9 @@ class binary_search_tree
     int& operator[](std::string value);
     std::string min();
     std::string max();
+    bool isEmpty();
 
   private:
-    int notFound;
     Word* root; //root node of the binary search tree
     void insertHelper(Word* current, std::string word);
     /*
