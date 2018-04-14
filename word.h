@@ -12,11 +12,11 @@
 
 class Word 
 {
-  public:
+public:
     Word *left, *right;
     std::string word;
     int count;
-
+    
     Word();
     /*
      * Description:
