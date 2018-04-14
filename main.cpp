@@ -12,7 +12,7 @@
 using namespace std;
 
 void menu();
-void readFromFile(binary_search_tree bst);
+void readFromFile(binary_search_tree &bst);
 
 int main()
 {
@@ -40,11 +40,24 @@ void menu()
         cout << "7: Delete a Word" << endl;
         cout << "8: Save Current Word List to Disk" << endl;
         cout << "9: Quit" << endl << endl;
-        cout << "Your Choice(1 - 9):";
+        cout << "Your Choice(1 - 9): ";
         cin >> menuOption;
         
-        if (menuOption == "1"){
+        if (menuOption == "1")
+        {
             readFromFile(bst);
+        }
+        else if (menuOption == "2")
+        {
+            if (bst.isEmpty())
+            {
+                cout << "Empty List" << endl << endl;
+            }
+            else
+            {
+                bst.print();
+                cout << endl;
+            }
         }
         else if (menuOption == "9")
         {
@@ -57,7 +70,7 @@ void menu()
     }
 }
 
-void readFromFile(binary_search_tree)
+void readFromFile(binary_search_tree &bst)
 {
     // function variables
     string fileName = "";
@@ -67,5 +80,15 @@ void readFromFile(binary_search_tree)
     
     bst.readInFromFile(fileName);
     
+    // if tree is empty warn user
+    if (bst.isEmpty())
+    {
+        cout << "ERROR: " << fileName << " is missing or does not exist" << endl << endl;
+    }
     
+    // return success message
+    else
+    {
+        cout << "LOADED: " << fileName << endl << endl;
+    }
 }

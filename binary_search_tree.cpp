@@ -483,12 +483,14 @@ Word* binary_search_tree::biggestFromSubtree(Word* iterator)
     }
 }
 
-bool isEmpty()
+bool binary_search_tree::isEmpty()
 {
+    // if empty return true
     if (root == NULL)
     {
         return true;
     }
+    
     else
     {
         return false;
