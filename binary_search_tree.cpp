@@ -6,8 +6,8 @@
  */
 
 #include "binary_search_tree.h"
-#include <fstream>
-#include <locale> //to lower, c-string functions
+#include <fstream> // ofstrem, ifstream
+#include <locale>  //to lower, c-string functions
 
 binary_search_tree::binary_search_tree()
 {
