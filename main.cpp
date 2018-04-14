@@ -11,25 +11,28 @@
 
 using namespace std;
 
+void menu();
+
 int main()
 {
-    
-    binary_search_tree bst;
-    bst.readInFromFile("sherlock.txt");
-    //cout << bst["apple"] << endl;
-    //bst["apple"]++;
-    //cout << bst["apple"] << endl;
-    bst.saveFile("testFile.txt");
-    bst.print();
-    //cout << "----------------" << endl;
-    //bst.deleteWord("apple");
-    //bst.deleteWord("car");
-    //bst.deleteWord("house");
-    //bst.deleteWord("chair");
-    //bst.deleteWord("sofa");
-    //bst.deleteWord("ottoman");
-    //bst.print();
-
+    menu();
     return 0;
 }
 
+void menu()
+{
+    // make an empty tree
+    binary_search_tree bst;
+    
+    cout << "Welcom to Chris's Word Count!" << endl << endl;
+    cout << "1: Read in From A File" << endl;
+    cout << "2: Print Current Word List" << endl;
+    cout << "3: Search For A Word" << endl;
+    cout << "4: Add a Word" << endl;
+    cout << "5: Increment One Words Value by One" << endl;
+    cout << "6: Set a Word to a new amount" << endl;
+    cout << "7: Delete a Word" << endl;
+    cout << "8: Save Current Word List to Disk" << endl;
+    cout << "9: Quit" << endl;
+    
+}

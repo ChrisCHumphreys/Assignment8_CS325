@@ -16,7 +16,11 @@ binary_search_tree::binary_search_tree()
 
 binary_search_tree::~binary_search_tree()
 {
-    //
+    // go thorugh and delete all items
+    while (root != NULL)
+    {
+        deleteWord(min());
+    }
 }
 void binary_search_tree::insertWord(std::string value) 
 {
